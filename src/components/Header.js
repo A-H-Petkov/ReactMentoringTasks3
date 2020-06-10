@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from '../resources/site-logo.png';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 
 
 const Header = () => {
+
+  // throw new Error('test');
 
   return (
     <React.Fragment>
