@@ -34,6 +34,12 @@ class MovieForm extends React.Component{
     
   }
 
+  submitForm = (e) => {
+    e.preventDefault();
+    const { movie } = this.state;
+    this.props.confirmModal(movie);
+  }
+
   render() {
     const {
       title, 
@@ -105,11 +111,11 @@ class MovieForm extends React.Component{
           }
         </Form.Group>
         
-        <Button variant="primary" type="submit" className="modal-form-submit" >
+        <Button variant="primary" type="submit" className="modal-form-submit" onClick={this.submitForm}>
           SUBMIT
         </Button>
 
-        <Button variant="outline-primary" type="submit" className="modal-form-reset" onClick={this.resetForm}>
+        <Button variant="outline-primary" type="reset" className="modal-form-reset" onClick={this.resetForm}>
           RESET
         </Button>
       </Form>

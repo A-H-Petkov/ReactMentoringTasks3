@@ -7,7 +7,7 @@ const selecetModal = (type, typeList, confirmAction, stagedMovie) => {
   switch(type) {
     case typeList.ADD:
       case typeList.EDIT:
-      return <MovieForm confirmAction={confirmAction} stagedMovie={stagedMovie}/>;
+      return <MovieForm confirmModal={confirmAction} stagedMovie={stagedMovie}/>;
     case typeList.DELETE:
       return( 
         <>

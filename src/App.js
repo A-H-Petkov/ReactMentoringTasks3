@@ -45,7 +45,7 @@ class App extends React.Component{
   confirmModal = (data = {}) => {
     const { movieList, openModal, stagedMovie } = this.state;
     const updatedList = updateMovieList(movieList, openModal, stagedMovie, data);
-    // console.log(updatedList)
+    console.log(updatedList)
     this.setState({ movieList: updatedList });
     this.closeModal();
   }

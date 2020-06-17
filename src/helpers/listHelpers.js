@@ -8,4 +8,18 @@ export const updateMovieList = (list, action, item, data) => {
             movie
         ))
     }
+    else if(action === modalTypes.ADD) {
+        return [
+            ...list,
+            { ...data, id: list.length + 1}
+        ]
+    }
+    else {
+        return list.map(movie => (
+            movie.id === item.id ?
+            data :
+            movie
+        ))
+
+    }
 }
