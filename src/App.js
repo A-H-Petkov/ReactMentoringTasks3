@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-modal';
 import ErrorBoundary from './ErrorBoundary';
 import Catalog from './components/Catalog/Catalog';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ModalContent from './components/ModalContent'
 import { 
   filterOptions, 
   sortingOptions, 
@@ -12,6 +13,9 @@ import {
   modalTypes,
   modalStyles, 
 } from './mockData/data';
+import {
+  updateMovieList
+} from './helpers/listHelpers';
 import './App.css';
 
 /* ToDo - 
@@ -22,21 +26,45 @@ import './App.css';
 
 Modal.setAppElement('#root');
 
-function App() {
-  const [openModal, setOpenModal] = useState('');
+class App extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      openModal: '',
+      movieList,
+      stagedMovie: null,
+    }
+  };
 
+  setOpenModal = (setType, movieId) => {
+    this.setState({ openModal: setType, stagedMovie: movieId })
+  };
+
+  closeModal = () => { this.setOpenModal('', null); };
+
+  confirmModal = (data = {}) => {
+    const { movieList, openModal, stagedMovie } = this.state;
+    const updatedList = updateMovieList(movieList, openModal, stagedMovie, data);
+    // console.log(updatedList)
+    this.setState({ movieList: updatedList });
+    this.closeModal();
+  }
+
+
+  render() {
+    const { openModal, movieList } = this.state;
   return (
     <ErrorBoundary>
       <div className="App">
         <Header
-          setOpenModal={setOpenModal} 
+          setOpenModal={this.setOpenModal} 
           modalTypes={modalTypes}
         />
         <Catalog 
           filterOptions={filterOptions}
           sortingOptions={sortingOptions}
           movieList={movieList}
-          setOpenModal={setOpenModal}
+          setOpenModal={this.setOpenModal}
           modalTypes={modalTypes}
         />      
         <Footer />
@@ -44,12 +72,18 @@ function App() {
       <Modal 
         isOpen={openModal !== ''} 
         style={modalStyles}
-        onRequestClose={() => { setOpenModal(''); }}
+        onRequestClose={this.closeModal}
       >
-        {openModal}
+        <ModalContent
+          closeModal={this.closeModal} 
+          modalTypes={modalTypes}
+          activeType={openModal}
+          confirmModal={this.confirmModal}
+        />
       </Modal>
     </ErrorBoundary>
   );
+  }
 }
 
 export default App;

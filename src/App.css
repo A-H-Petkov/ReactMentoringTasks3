@@ -42,7 +42,8 @@ main {
   padding: 30px;
 }
 
-.search-panel-title {
+.search-panel-title,
+.modal-title {
   color: #61dafb;
   font-size: 28px;
   font-weight: 200;
@@ -161,4 +162,13 @@ button.item-dot-menu-trigger::after {
 
 .catalog-item:hover .item-dot-menu {
   display: block;
+}
+
+.close-modal-btn {
+  color: white;
+  font-size: 24px;
+  line-height: 24px;
+  background-color: transparent;
+  border: none;
+  float: right;
 }
