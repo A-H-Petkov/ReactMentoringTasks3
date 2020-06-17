@@ -36,8 +36,8 @@ class App extends React.Component{
     }
   };
 
-  setOpenModal = (setType, movieId) => {
-    this.setState({ openModal: setType, stagedMovie: movieId })
+  setOpenModal = (setType, movie) => {
+    this.setState({ openModal: setType, stagedMovie: movie })
   };
 
   closeModal = () => { this.setOpenModal('', null); };
@@ -52,7 +52,7 @@ class App extends React.Component{
 
 
   render() {
-    const { openModal, movieList } = this.state;
+    const { openModal, movieList, stagedMovie } = this.state;
   return (
     <ErrorBoundary>
       <div className="App">
@@ -79,6 +79,7 @@ class App extends React.Component{
           modalTypes={modalTypes}
           activeType={openModal}
           confirmModal={this.confirmModal}
+          stagedMovie={stagedMovie}
         />
       </Modal>
     </ErrorBoundary>

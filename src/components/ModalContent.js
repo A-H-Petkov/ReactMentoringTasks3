@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
+import MovieForm from './MovieForm';
 
-const selecetModal = (type, typeList, confirmAction) => {
+const selecetModal = (type, typeList, confirmAction, stagedMovie) => {
   switch(type) {
     case typeList.ADD:
-      return <div>{type}</div>;
-    case typeList.EDIT:
-      return <div>{type}</div>;
+      case typeList.EDIT:
+      return <MovieForm confirmAction={confirmAction} stagedMovie={stagedMovie}/>;
     case typeList.DELETE:
       return( 
         <>
@@ -28,16 +28,20 @@ const ModalContent = ({
   activeType,
   modalTypes,
   closeModal,
-  confirmModal
+  confirmModal,
+  stagedMovie,
 }) => {
 
   return (
     <>
     <div>
       <button className="close-modal-btn" onClick={closeModal}>&#10005;</button>
-      <h4 className="modal-title">{activeType.toUpperCase()}</h4>
+      <h4 className="modal-title">
+        {`${activeType.toUpperCase()} `}
+        {stagedMovie && stagedMovie.title !== '' && `"${stagedMovie.title}"`}
+      </h4>
     </div>
-    { selecetModal(activeType, modalTypes, confirmModal) }
+    { selecetModal(activeType, modalTypes, confirmModal, stagedMovie) }
     </>
   );
 }
@@ -46,7 +50,8 @@ ModalContent.propTypes = {
   confirmModal: PropTypes.func,
   closeModal: PropTypes.func,
   modalTypes: PropTypes.object,
-  activeType: PropTypes.string
+  activeType: PropTypes.string,
+  stagedMovie: PropTypes.object,
 }
 
 ModalContent.defaultProps = {
@@ -54,6 +59,7 @@ ModalContent.defaultProps = {
   closeModal: () => { console.log('default closeModal function called')},
   modalTypes: {},
   activeType: '',
+  stagedMovie: {},
 }
 
 export default ModalContent;

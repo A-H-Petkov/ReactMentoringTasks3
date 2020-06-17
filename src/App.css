@@ -172,3 +172,18 @@ button.item-dot-menu-trigger::after {
   border: none;
   float: right;
 }
+
+.form-input {
+  background-color: #282c34;
+  border-color: #007bff;
+  color: white;
+}
+
+.modal-form-reset,
+.modal-form-submit {
+  float: right;
+}
+
+.modal-form-submit {
+  margin-left: 22px;
+}

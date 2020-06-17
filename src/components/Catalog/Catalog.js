@@ -29,7 +29,7 @@ function Catalog({
         />
         <div>
           <span className="sorting-label">
-            <b>39</b> MOVIES FOUND
+          <b>{movieList.length}</b> MOVIES FOUND
           </span>
         </div>
         <div className="catalog-container">
@@ -41,6 +41,7 @@ function Catalog({
                 // height={180}
                 alt="171x180"
                 src={movie.poster}
+                //toDo generic image when poster is not provided
               />
               <Figure.Caption>
                 <div className="movie-title-row">
@@ -55,9 +56,9 @@ function Catalog({
               <Dropdown as={ButtonGroup} className="item-dot-menu">
                 <Dropdown.Toggle className="item-dot-menu-trigger">&#8942;</Dropdown.Toggle>
                 <Dropdown.Menu>
-                <Dropdown.Item as="button" onClick={() => { setOpenModal(modalTypes.DELETE, movie.id)}}>DELETE</Dropdown.Item>
-                <Dropdown.Item as="button" onClick={() => { setOpenModal(modalTypes.EDIT, movie.id)}}>EDIT</Dropdown.Item>
-                <Dropdown.Item as="button">TODO</Dropdown.Item>
+                <Dropdown.Item as="button" onClick={() => { setOpenModal(modalTypes.DELETE, movie)}}>DELETE</Dropdown.Item>
+                <Dropdown.Item as="button" onClick={() => { setOpenModal(modalTypes.EDIT, movie)}}>EDIT</Dropdown.Item>
+                {/* <Dropdown.Item as="button">TODO</Dropdown.Item> */}
                 </Dropdown.Menu>
               </Dropdown>
             </Figure>

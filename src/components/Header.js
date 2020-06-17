@@ -4,7 +4,7 @@ import logo from '../resources/site-logo.png';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-
+import { moviePrimer } from './../mockData/data';
 
 const Header = (props) => {
 
@@ -16,7 +16,7 @@ const Header = (props) => {
         <img src={logo} alt="My_movies" className="app-logo" />
         <Button 
           className="add-movie-btn" 
-          onClick={() => { setOpenModal(modalTypes.ADD)}}
+          onClick={() => { setOpenModal(modalTypes.ADD, moviePrimer)}}
         >
           + ADD MOVIE
         </Button>

@@ -1,9 +1,9 @@
 import { modalTypes } from '../mockData/data';
 
-export const updateMovieList = (list, action, itemId, data) => {
+export const updateMovieList = (list, action, item, data) => {
     if(action === modalTypes.DELETE) {
         return list.map(movie => (
-            movie.id === itemId ?
+            movie.id === item.id ?
             { ...movie, isActive: false} :
             movie
         ))
