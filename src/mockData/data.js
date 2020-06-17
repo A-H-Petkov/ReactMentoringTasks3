@@ -23,3 +23,21 @@ export const movieList = [
     { title: 'Doctor Sleep', poster: 'https://image.tmdb.org/t/p/original/ohS07RD5jpfUjEkYBC4q6MKaA6E.jpg', year: '2019', genres: ['Action', 'Horror']},
     { title: 'Movie 6', poster: 'https://cdn.collider.com/wp-content/uploads/2014/02/jodorowskys-dune-poster.jpg', year: '2014', genres: ['Documentary']},
   ]
+
+export const modalTypes = {
+  ADD: 'Add movie',
+  DELETE: 'Delete movie',
+  EDIT: 'Edit movie',
+};
+
+export const modalStyles = {
+  overlay: {
+    backgroundColor: 'rgba(42, 46, 54, 0.7)',
+    zIndex: 7,
+  },
+  content: {
+    backgroundColor: '#232323',
+    borderColor: 'black',
+    color: 'white',
+  }
+};

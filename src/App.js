@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Modal from 'react-modal';
 import ErrorBoundary from './ErrorBoundary';
 import Catalog from './components/Catalog/Catalog';
 import Header from './components/Header';
@@ -7,29 +8,46 @@ import Footer from './components/Footer';
 import { 
   filterOptions, 
   sortingOptions, 
-  movieList 
+  movieList,
+  modalTypes,
+  modalStyles, 
 } from './mockData/data';
 import './App.css';
 
 /* ToDo - 
-1. Split into separate components (use fragments) 
-2. Pass mock data as Props and use PropTypes
-3. Use error-boundery
-4. Add funtionality and fix style issues*/
+1. “Add movie”, “Edit”, “Delete” modal windows and “sorting”. 
+2. Use stateless/stateful approach
+3. Use React synthetic events
+4. Use lifecycle methods */
+
+Modal.setAppElement('#root');
 
 function App() {
+  const [openModal, setOpenModal] = useState('');
 
   return (
     <ErrorBoundary>
       <div className="App">
-        <Header />
+        <Header
+          setOpenModal={setOpenModal} 
+          modalTypes={modalTypes}
+        />
         <Catalog 
           filterOptions={filterOptions}
           sortingOptions={sortingOptions}
           movieList={movieList}
+          setOpenModal={setOpenModal}
+          modalTypes={modalTypes}
         />      
         <Footer />
       </div>
+      <Modal 
+        isOpen={openModal !== ''} 
+        style={modalStyles}
+        onRequestClose={() => { setOpenModal(''); }}
+      >
+        {openModal}
+      </Modal>
     </ErrorBoundary>
   );
 }

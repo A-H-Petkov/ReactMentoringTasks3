@@ -128,19 +128,34 @@ main {
   position: absolute;
   top: 20px;
   right: 20px;
-  height: 40px;
-  width: 40px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5)!important;
   text-align: center;
   border-radius: 50%;
   color: whitesmoke;
   font-size: 38px;
   line-height: 16px;
-  -webkit-transform:rotate(90deg);
+  /* -webkit-transform:rotate(90deg);
   -moz-transform:rotate(90deg);
   -o-transform: rotate(90deg);
   -ms-transform:rotate(90deg);
-  transform: rotate(90deg);
+  transform: rotate(90deg); */
+  display: none;
+}
+
+.item-dot-menu-trigger {
+
+
+  height: 40px;
+  width: 40px;
+  background-color: rgba(0, 0, 0, 0.5)!important;
+  text-align: center;
+  border-radius: 50%;
+  color: whitesmoke;
+  font-size: 28px;
+  line-height: 16px;
+}
+
+button.item-dot-menu-trigger::after {
   display: none;
 }
 
