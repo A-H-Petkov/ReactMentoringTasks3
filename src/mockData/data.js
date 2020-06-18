@@ -15,7 +15,7 @@ export const sortingOptions = [
     { name: 'Runtime', value: 3 }
   ]
   
-export const movieList = [
+export const defaultMovieList = [
     { 
       id: 1,
       title: 'Black widow', 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-modal';
 import ErrorBoundary from './ErrorBoundary';
@@ -10,7 +10,7 @@ import ModalContent from './components/ModalContent'
 import { 
   filterOptions, 
   sortingOptions, 
-  movieList,
+  defaultMovieList,
   modalTypes,
   modalStyles, 
 } from './mockData/data';
@@ -19,47 +19,41 @@ import {
 } from './helpers/listHelpers';
 import './App.css';
 
-/* ToDo - 
-1. “Add movie”, “Edit”, “Delete” modal windows and “sorting”. 
-2. Use stateless/stateful approach
-3. Use React synthetic events
-4. Use lifecycle methods */
+
 
 Modal.setAppElement('#root');
 
-class App extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      openModal: '',
-      movieList,
-      stagedMovie: null,
-      detailedPreview: null
-    }
+const App = () => {
+
+  const [openModal, setOpenModal] = useState('');
+  const [movieList, setMovieList] = useState(defaultMovieList);
+  const [stagedMovie, setStagedMovie] = useState(null);
+  const [detailedPreview, setDetailedPreview] = useState(null);
+
+  const prepareModalData = (setType, movie) => {
+    setOpenModal(setType); 
+    setStagedMovie(movie);
   };
 
-  setOpenModal = (setType, movie) => {
-    this.setState({ openModal: setType, stagedMovie: movie })
+  const closeModal = () => { 
+    setOpenModal(''); 
+    setStagedMovie(null);
   };
 
-  closeModal = () => { this.setOpenModal('', null); };
+  const closeDetails = () => { 
+    setStagedMovie(null)
+  }
 
-  closeDetails = () => { this.setState({ detailedPreview: null })}
-
-  confirmModal = (data = {}) => {
-    const { movieList, openModal, stagedMovie } = this.state;
+  const confirmModal = (data = {}) => {
     const updatedList = updateMovieList(movieList, openModal, stagedMovie, data);
-    this.setState({ movieList: updatedList });
-    this.closeModal();
+    setMovieList(updatedList);
+    closeModal();
   }
 
-  openDetailed = (item) => {
-    this.setState({ detailedPreview: item })
+  const openDetailed = (item) => {
+    setDetailedPreview(item)
   }
 
-
-  render() {
-    const { openModal, movieList, stagedMovie, detailedPreview } = this.state;
   return (
     <ErrorBoundary>
       <div className="App">
@@ -68,11 +62,11 @@ class App extends React.Component{
           ?
           <DetailsPanel
             movie={detailedPreview}
-            closeDetails={this.closeDetails}
+            closeDetails={closeDetails}
           />   
           :
           <Header
-          setOpenModal={this.setOpenModal} 
+          setOpenModal={prepareModalData} 
           modalTypes={modalTypes}
         />
         }
@@ -81,28 +75,27 @@ class App extends React.Component{
           filterOptions={filterOptions}
           sortingOptions={sortingOptions}
           movieList={movieList}
-          setOpenModal={this.setOpenModal}
+          setOpenModal={prepareModalData}
           modalTypes={modalTypes}
-          openDetailed={this.openDetailed}
+          openDetailed={openDetailed}
         />      
         <Footer />
       </div>
       <Modal 
         isOpen={openModal !== ''} 
         style={modalStyles}
-        onRequestClose={this.closeModal}
+        onRequestClose={closeModal}
       >
         <ModalContent
-          closeModal={this.closeModal} 
+          closeModal={closeModal} 
           modalTypes={modalTypes}
           activeType={openModal}
-          confirmModal={this.confirmModal}
+          confirmModal={confirmModal}
           stagedMovie={stagedMovie}
         />
       </Modal>
     </ErrorBoundary>
   );
-  }
 }
 
 export default App;

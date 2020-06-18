@@ -1,60 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { filterOptions } from '../mockData/data';
+import { filterOptions, moviePrimer } from '../mockData/data';
 
 
-class MovieForm extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      movie: props.stagedMovie,
-    }
-  };
+const MovieForm = ({ stagedMovie, confirmModal }) => {
+  const [movie, setMovie] = useState(moviePrimer)
 
-  resetForm = (e) => {
+  useEffect(() => {
+    setMovie(stagedMovie)
+  }, [stagedMovie]);
+
+
+  const resetForm = useCallback((e) => {
     e.preventDefault();
-    this.setState({ movie: this.props.stagedMovie, })
-  }
+    setMovie(stagedMovie);
+  })
 
-  updateForm = (e) => {
+  const updateForm = useCallback((e) => {
     e.preventDefault();
-    this.setState({ movie: { ...this.state.movie, [e.target.name] : e.target.value}})
-  }
+    setMovie({ ...movie, [e.target.name] : e.target.value});
+  })
 
-  updateMovieGenres = (e) => {
+  const updateMovieGenres = useCallback((e) => {
     // e.preventDefault(); causes a checkbox bug
     const clicked = e.target.id;
-    const { movie: { genres: genresList }} = this.state;
-    const changedGenres = genresList.indexOf(clicked) < 0 
-      ? [...genresList, clicked] 
-      : genresList.filter(g => g !== clicked);
-      this.setState({ movie: { ...this.state.movie, genres: changedGenres}});
+    const { genres } = movie;
+    const changedGenres = genres.indexOf(clicked) < 0 
+      ? [...genres, clicked] 
+      : genres.filter(g => g !== clicked);
+      setMovie({ ...movie, genres: changedGenres });
     
-  }
+  })
 
-  submitForm = (e) => {
+  const submitForm = useCallback((e) => {
     e.preventDefault();
-    const { movie } = this.state;
-    this.props.confirmModal(movie);
-  }
-
-  render() {
-    const {
-      title, 
-      poster, 
-      year,
-      overview, 
-      runtime,
-      genres,
-      url, } = this.state.movie; 
+    confirmModal(movie);
+  })
 
     return (
       <Form>
         <Form.Group controlId="formMovieTitle">
           <Form.Label>TITLE</Form.Label>
-          <Form.Control type="text" placeholder="Enter movie title" className="form-input" value={title} onChange={this.updateForm} name="title"/>
+          <Form.Control type="text" placeholder="Enter movie title" className="form-input" value={movie.title} onChange={updateForm} name="title"/>
           {/* ToDo input validation and error messages
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
@@ -64,31 +53,31 @@ class MovieForm extends React.Component{
         <Form.Group controlId="formMovieDate">
           {/* ToDO use Datepicker ? */}
           <Form.Label>RELEASE YEAR</Form.Label>
-          <Form.Control type="number" placeholder="2020" className="form-input" value={year} onChange={this.updateForm} name="year" />
+          <Form.Control type="number" placeholder="2020" className="form-input" value={movie.year} onChange={updateForm} name="year" />
         </Form.Group>
 
         <Form.Group controlId="formMovieUrl">
           {/* ToDo input validation and error messages */}
           <Form.Label>MOVIE URL</Form.Label>
-          <Form.Control type="text" placeholder="www.movie.com" className="form-input" value={url} onChange={this.updateForm} name="url" />
+          <Form.Control type="text" placeholder="www.movie.com" className="form-input" value={movie.url} onChange={updateForm} name="url" />
         </Form.Group>
 
         <Form.Group controlId="formMoviePoster">
           {/* ToDo input validation and error messages */}
           <Form.Label>MOVIE POSTER</Form.Label>
-          <Form.Control type="text" placeholder="www.movie.com/image.jpg" className="form-input" value={poster} onChange={this.updateForm} name="poster" />
+          <Form.Control type="text" placeholder="www.movie.com/image.jpg" className="form-input" value={movie.poster} onChange={updateForm} name="poster" />
         </Form.Group>
 
         <Form.Group controlId="formMovieOverview">
           {/* ToDo input validation and error messages */}
           <Form.Label>OVERVIEW</Form.Label>
-          <Form.Control type="text" placeholder="Plot, characters, no spoilers..." className="form-input" value={overview} onChange={this.updateForm} name="overview" />
+          <Form.Control type="text" placeholder="Plot, characters, no spoilers..." className="form-input" value={movie.overview} onChange={updateForm} name="overview" />
         </Form.Group>
 
         <Form.Group controlId="formMovieTime">
           {/* ToDO use Datepicker ? */}
           <Form.Label>RUNTIME</Form.Label>
-          <Form.Control type="number" placeholder="120min" className="form-input" value={runtime} onChange={this.updateForm} name="runtime" />
+          <Form.Control type="number" placeholder="120min" className="form-input" value={movie.runtime} onChange={updateForm} name="runtime" />
         </Form.Group>
 
         <Form.Group controlId="formBasicCheckbox" >
@@ -103,24 +92,23 @@ class MovieForm extends React.Component{
                   type="checkbox" 
                   inline 
                   label={genre.name} 
-                  checked={genres.indexOf(genre.name) >= 0} 
-                  onChange={this.updateMovieGenres}
+                  checked={movie.genres.indexOf(genre.name) >= 0} 
+                  onChange={updateMovieGenres}
                 />
               )
             })
           }
         </Form.Group>
         
-        <Button variant="primary" type="submit" className="modal-form-submit" onClick={this.submitForm}>
+        <Button variant="primary" type="submit" className="modal-form-submit" onClick={submitForm}>
           SUBMIT
         </Button>
 
-        <Button variant="outline-primary" type="reset" className="modal-form-reset" onClick={this.resetForm}>
+        <Button variant="outline-primary" type="reset" className="modal-form-reset" onClick={resetForm}>
           RESET
         </Button>
       </Form>
     );
-  }
 }
 
 MovieForm.propTypes = {
