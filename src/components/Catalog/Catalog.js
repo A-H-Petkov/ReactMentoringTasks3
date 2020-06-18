@@ -13,6 +13,7 @@ function Catalog({
   movieList,
   setOpenModal,
   modalTypes,
+  openDetailed,
 }) {
   const [filterValue, setFilterValue] = useState('1');
   const [sortValue, setSortValue] = useState(0);
@@ -58,7 +59,7 @@ function Catalog({
                 <Dropdown.Menu>
                 <Dropdown.Item as="button" onClick={() => { setOpenModal(modalTypes.DELETE, movie)}}>DELETE</Dropdown.Item>
                 <Dropdown.Item as="button" onClick={() => { setOpenModal(modalTypes.EDIT, movie)}}>EDIT</Dropdown.Item>
-                {/* <Dropdown.Item as="button">TODO</Dropdown.Item> */}
+                <Dropdown.Item as="button" onClick={() => { openDetailed(movie)}}>DETAILS</Dropdown.Item> 
                 </Dropdown.Menu>
               </Dropdown>
             </Figure>
@@ -74,6 +75,7 @@ Catalog.propTypes = {
   movieList: PropTypes.array,  
   setOpenModal: PropTypes.func,
   modalTypes: PropTypes.object,
+  openDetailed: PropTypes.func,
 }
 
 Catalog.defaultProps = {
@@ -82,6 +84,7 @@ Catalog.defaultProps = {
   movieList: [],
   setOpenModal: () => { console.log('default setOpenModal function called')},
   modalTypes: {},
+  openDetailed: () => { console.log('default openDetailed function called')},
 }
 
 export default Catalog;

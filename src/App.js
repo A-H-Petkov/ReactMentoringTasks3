@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import ErrorBoundary from './ErrorBoundary';
 import Catalog from './components/Catalog/Catalog';
 import Header from './components/Header';
+import DetailsPanel from './components/DetailsPanel'
 import Footer from './components/Footer';
 import ModalContent from './components/ModalContent'
 import { 
@@ -33,6 +34,7 @@ class App extends React.Component{
       openModal: '',
       movieList,
       stagedMovie: null,
+      detailedPreview: null
     }
   };
 
@@ -42,30 +44,46 @@ class App extends React.Component{
 
   closeModal = () => { this.setOpenModal('', null); };
 
+  closeDetails = () => { this.setState({ detailedPreview: null })}
+
   confirmModal = (data = {}) => {
     const { movieList, openModal, stagedMovie } = this.state;
     const updatedList = updateMovieList(movieList, openModal, stagedMovie, data);
-    console.log(updatedList)
     this.setState({ movieList: updatedList });
     this.closeModal();
   }
 
+  openDetailed = (item) => {
+    this.setState({ detailedPreview: item })
+  }
+
 
   render() {
-    const { openModal, movieList, stagedMovie } = this.state;
+    const { openModal, movieList, stagedMovie, detailedPreview } = this.state;
   return (
     <ErrorBoundary>
       <div className="App">
-        <Header
+        {
+          detailedPreview !== null 
+          ?
+          <DetailsPanel
+            movie={detailedPreview}
+            closeDetails={this.closeDetails}
+          />   
+          :
+          <Header
           setOpenModal={this.setOpenModal} 
           modalTypes={modalTypes}
         />
+        }
+        
         <Catalog 
           filterOptions={filterOptions}
           sortingOptions={sortingOptions}
           movieList={movieList}
           setOpenModal={this.setOpenModal}
           modalTypes={modalTypes}
+          openDetailed={this.openDetailed}
         />      
         <Footer />
       </div>

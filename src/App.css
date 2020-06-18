@@ -43,7 +43,8 @@ main {
 }
 
 .search-panel-title,
-.modal-title {
+.modal-title,
+.details-title {
   color: #61dafb;
   font-size: 28px;
   font-weight: 200;
@@ -186,4 +187,27 @@ button.item-dot-menu-trigger::after {
 
 .modal-form-submit {
   margin-left: 22px;
+}
+
+.darker-back {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.details-poster {
+  width: 208px;
+  margin-right: 40px;
+}
+
+.details-overview {
+  color: white;
+}
+
+.detail-stats span {
+  color: #61dafb;
+  display: inline-block;
+  margin-right: 24px;
+}
+
+.color-sienna {
+  color: sienna;
 }
