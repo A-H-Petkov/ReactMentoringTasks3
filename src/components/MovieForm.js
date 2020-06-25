@@ -117,7 +117,7 @@ MovieForm.propTypes = {
 }
 
 MovieForm.defaultProps = {
-  confirmModal: () => { console.log('default confirmModal function called')},
+  // confirmModal: () => { console.log('default confirmModal function called')},
   stagedMovie: {},
 }
 

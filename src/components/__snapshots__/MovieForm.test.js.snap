@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <form
+    class=""
+  >
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label"
+        for="formMovieTitle"
+      >
+        TITLE
+      </label>
+      <input
+        class="form-input form-control"
+        id="formMovieTitle"
+        name="title"
+        placeholder="Enter movie title"
+        type="text"
+        value="Black widow"
+      />
+    </div>
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label"
+        for="formMovieDate"
+      >
+        RELEASE YEAR
+      </label>
+      <input
+        class="form-input form-control"
+        id="formMovieDate"
+        name="year"
+        placeholder="2020"
+        type="number"
+        value="2020"
+      />
+    </div>
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label"
+        for="formMovieUrl"
+      >
+        MOVIE URL
+      </label>
+      <input
+        class="form-input form-control"
+        id="formMovieUrl"
+        name="url"
+        placeholder="www.movie.com"
+        type="text"
+        value="black.com"
+      />
+    </div>
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label"
+        for="formMoviePoster"
+      >
+        MOVIE POSTER
+      </label>
+      <input
+        class="form-input form-control"
+        id="formMoviePoster"
+        name="poster"
+        placeholder="www.movie.com/image.jpg"
+        type="text"
+        value="https://cdn.collider.com/wp-content/uploads/2020/03/black-widow-poster.jpg"
+      />
+    </div>
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label"
+        for="formMovieOverview"
+      >
+        OVERVIEW
+      </label>
+      <input
+        class="form-input form-control"
+        id="formMovieOverview"
+        name="overview"
+        placeholder="Plot, characters, no spoilers..."
+        type="text"
+        value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      />
+    </div>
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label"
+        for="formMovieTime"
+      >
+        RUNTIME
+      </label>
+      <input
+        class="form-input form-control"
+        id="formMovieTime"
+        name="runtime"
+        placeholder="120min"
+        type="number"
+        value="120"
+      />
+    </div>
+    <div
+      class="form-group"
+    >
+      <div
+        class="form-check form-check-inline"
+      >
+        <input
+          class="form-check-input"
+          id="COMEDY"
+          name="genres"
+          type="checkbox"
+        />
+        <label
+          class="form-check-label"
+          for="COMEDY"
+          title=""
+        >
+          COMEDY
+        </label>
+      </div>
+      <div
+        class="form-check form-check-inline"
+      >
+        <input
+          class="form-check-input"
+          id="DRAMA"
+          name="genres"
+          type="checkbox"
+        />
+        <label
+          class="form-check-label"
+          for="DRAMA"
+          title=""
+        >
+          DRAMA
+        </label>
+      </div>
+      <div
+        class="form-check form-check-inline"
+      >
+        <input
+          class="form-check-input"
+          id="CRIME"
+          name="genres"
+          type="checkbox"
+        />
+        <label
+          class="form-check-label"
+          for="CRIME"
+          title=""
+        >
+          CRIME
+        </label>
+      </div>
+      <div
+        class="form-check form-check-inline"
+      >
+        <input
+          class="form-check-input"
+          id="HORROR"
+          name="genres"
+          type="checkbox"
+        />
+        <label
+          class="form-check-label"
+          for="HORROR"
+          title=""
+        >
+          HORROR
+        </label>
+      </div>
+      <div
+        class="form-check form-check-inline"
+      >
+        <input
+          class="form-check-input"
+          id="ACTION"
+          name="genres"
+          type="checkbox"
+        />
+        <label
+          class="form-check-label"
+          for="ACTION"
+          title=""
+        >
+          ACTION
+        </label>
+      </div>
+      <div
+        class="form-check form-check-inline"
+      >
+        <input
+          class="form-check-input"
+          id="SCI-FI"
+          name="genres"
+          type="checkbox"
+        />
+        <label
+          class="form-check-label"
+          for="SCI-FI"
+          title=""
+        >
+          SCI-FI
+        </label>
+      </div>
+      <div
+        class="form-check form-check-inline"
+      >
+        <input
+          class="form-check-input"
+          id="DOCUMENTARY"
+          name="genres"
+          type="checkbox"
+        />
+        <label
+          class="form-check-label"
+          for="DOCUMENTARY"
+          title=""
+        >
+          DOCUMENTARY
+        </label>
+      </div>
+    </div>
+    <button
+      class="modal-form-submit btn btn-primary"
+      type="submit"
+    >
+      SUBMIT
+    </button>
+    <button
+      class="modal-form-reset btn btn-outline-primary"
+      type="reset"
+    >
+      RESET
+    </button>
+  </form>
+</DocumentFragment>
+`;

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <footer
+    class="app-footer"
+  >
+    <img
+      alt="My_movies"
+      class="app-footer-logo"
+      src="site-logo.png"
+    />
+    <div
+      class="posters-panel"
+    />
+  </footer>
+</DocumentFragment>
+`;

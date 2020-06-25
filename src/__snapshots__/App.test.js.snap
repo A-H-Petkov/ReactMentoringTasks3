@@ -1,0 +1,442 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <header
+      class="App-header"
+    >
+      <img
+        alt="My_movies"
+        class="app-logo"
+        src="site-logo.png"
+      />
+      <button
+        class="add-movie-btn btn btn-primary"
+        type="button"
+      >
+        + ADD MOVIE
+      </button>
+      <div
+        class="search-panel"
+      >
+        <h3
+          class="search-panel-title"
+        >
+          FIND YOUR MOVIE
+        </h3>
+        <div
+          class="mb-3 input-group"
+        >
+          <input
+            aria-describedby="basic-addon2"
+            aria-label="What do you want to watch?"
+            class="form-control"
+            placeholder="What do you want to watch?"
+          />
+          <div
+            class="input-group-append"
+          >
+            <button
+              class="btn btn-primary"
+              id="basic-addon2"
+              type="button"
+            >
+              SEARCH
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="posters-panel"
+      />
+    </header>
+    <main>
+      <div
+        class="catalog-controls"
+      >
+        <div
+          aria-label="Basic example"
+          class="btn-group btn-group-toggle"
+          role="group"
+        >
+          <label
+            class="btn active btn-outline-primary"
+          >
+            <input
+              autocomplete="off"
+              checked=""
+              name="radio"
+              type="radio"
+              value="1"
+            />
+            ALL
+          </label>
+          <label
+            class="btn btn-outline-primary"
+          >
+            <input
+              autocomplete="off"
+              name="radio"
+              type="radio"
+              value="2"
+            />
+            COMEDY
+          </label>
+          <label
+            class="btn btn-outline-primary"
+          >
+            <input
+              autocomplete="off"
+              name="radio"
+              type="radio"
+              value="3"
+            />
+            DRAMA
+          </label>
+          <label
+            class="btn btn-outline-primary"
+          >
+            <input
+              autocomplete="off"
+              name="radio"
+              type="radio"
+              value="4"
+            />
+            CRIME
+          </label>
+          <label
+            class="btn btn-outline-primary"
+          >
+            <input
+              autocomplete="off"
+              name="radio"
+              type="radio"
+              value="5"
+            />
+            HORROR
+          </label>
+          <label
+            class="btn btn-outline-primary"
+          >
+            <input
+              autocomplete="off"
+              name="radio"
+              type="radio"
+              value="6"
+            />
+            ACTION
+          </label>
+          <label
+            class="btn btn-outline-primary"
+          >
+            <input
+              autocomplete="off"
+              name="radio"
+              type="radio"
+              value="7"
+            />
+            SCI-FI
+          </label>
+          <label
+            class="btn btn-outline-primary"
+          >
+            <input
+              autocomplete="off"
+              name="radio"
+              type="radio"
+              value="8"
+            />
+            DOCUMENTARY
+          </label>
+        </div>
+        <div
+          class="btn-group"
+          role="group"
+        >
+          <span
+            class="sorting-label"
+          >
+            SORT BY: 
+          </span>
+          <div
+            class="dropdown"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="dropdown-toggle btn btn-primary"
+              id="dropdown-basic-button"
+              type="button"
+            >
+              RELEASE DATE
+            </button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span
+          class="sorting-label"
+        >
+          <b>
+            6
+          </b>
+           MOVIES FOUND
+        </span>
+      </div>
+      <div
+        class="catalog-container"
+      >
+        <figure
+          class="catalog-item figure"
+        >
+          <img
+            alt="171x180"
+            class="figure-img img-fluid"
+            src="https://cdn.collider.com/wp-content/uploads/2020/03/black-widow-poster.jpg"
+          />
+          <figcaption
+            class="figure-caption"
+          >
+            <div
+              class="movie-title-row"
+            >
+              <h6>
+                Black widow
+              </h6>
+              <span>
+                2020
+              </span>
+            </div>
+            <div>
+              ACTION
+            </div>
+          </figcaption>
+          <div
+            class="item-dot-menu dropdown btn-group"
+            role="group"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="item-dot-menu-trigger dropdown-toggle btn btn-primary"
+              type="button"
+            >
+              ⋮
+            </button>
+          </div>
+        </figure>
+        <figure
+          class="catalog-item figure"
+        >
+          <img
+            alt="171x180"
+            class="figure-img img-fluid"
+            src="https://i.pinimg.com/originals/c6/d4/e2/c6d4e2803a467b99ede238fee57441a7.jpg"
+          />
+          <figcaption
+            class="figure-caption"
+          >
+            <div
+              class="movie-title-row"
+            >
+              <h6>
+                Interstellar
+              </h6>
+              <span>
+                2014
+              </span>
+            </div>
+            <div>
+              ACTION, DRAMA, SCI-FI
+            </div>
+          </figcaption>
+          <div
+            class="item-dot-menu dropdown btn-group"
+            role="group"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="item-dot-menu-trigger dropdown-toggle btn btn-primary"
+              type="button"
+            >
+              ⋮
+            </button>
+          </div>
+        </figure>
+        <figure
+          class="catalog-item figure"
+        >
+          <img
+            alt="171x180"
+            class="figure-img img-fluid"
+            src="https://cdn.shopify.com/s/files/1/1416/8662/products/mad_max_fury_road_2015_advance_original_film_artB_69310cd2-a499-45fc-a12d-df89480c4c99_2000x.jpg?v=1573593327"
+          />
+          <figcaption
+            class="figure-caption"
+          >
+            <div
+              class="movie-title-row"
+            >
+              <h6>
+                MadMax
+              </h6>
+              <span>
+                2015
+              </span>
+            </div>
+            <div>
+              ACTION
+            </div>
+          </figcaption>
+          <div
+            class="item-dot-menu dropdown btn-group"
+            role="group"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="item-dot-menu-trigger dropdown-toggle btn btn-primary"
+              type="button"
+            >
+              ⋮
+            </button>
+          </div>
+        </figure>
+        <figure
+          class="catalog-item figure"
+        >
+          <img
+            alt="171x180"
+            class="figure-img img-fluid"
+            src="https://cdn.shopify.com/s/files/1/1416/8662/products/blade_runner_2049_2017_advance_original_film_art_9eeddf62-08a7-4bb2-9e09-9f21f318c14c_2000x.jpg?v=1578262145"
+          />
+          <figcaption
+            class="figure-caption"
+          >
+            <div
+              class="movie-title-row"
+            >
+              <h6>
+                Blade runner 2049
+              </h6>
+              <span>
+                2017
+              </span>
+            </div>
+            <div>
+              ACTION, SCI-FI
+            </div>
+          </figcaption>
+          <div
+            class="item-dot-menu dropdown btn-group"
+            role="group"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="item-dot-menu-trigger dropdown-toggle btn btn-primary"
+              type="button"
+            >
+              ⋮
+            </button>
+          </div>
+        </figure>
+        <figure
+          class="catalog-item figure"
+        >
+          <img
+            alt="171x180"
+            class="figure-img img-fluid"
+            src="https://image.tmdb.org/t/p/original/ohS07RD5jpfUjEkYBC4q6MKaA6E.jpg"
+          />
+          <figcaption
+            class="figure-caption"
+          >
+            <div
+              class="movie-title-row"
+            >
+              <h6>
+                Doctor Sleep
+              </h6>
+              <span>
+                2019
+              </span>
+            </div>
+            <div>
+              ACTION, HORROR
+            </div>
+          </figcaption>
+          <div
+            class="item-dot-menu dropdown btn-group"
+            role="group"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="item-dot-menu-trigger dropdown-toggle btn btn-primary"
+              type="button"
+            >
+              ⋮
+            </button>
+          </div>
+        </figure>
+        <figure
+          class="catalog-item figure"
+        >
+          <img
+            alt="171x180"
+            class="figure-img img-fluid"
+            src="https://cdn.collider.com/wp-content/uploads/2014/02/jodorowskys-dune-poster.jpg"
+          />
+          <figcaption
+            class="figure-caption"
+          >
+            <div
+              class="movie-title-row"
+            >
+              <h6>
+                DUNE
+              </h6>
+              <span>
+                2014
+              </span>
+            </div>
+            <div>
+              DOCUMENTARY
+            </div>
+          </figcaption>
+          <div
+            class="item-dot-menu dropdown btn-group"
+            role="group"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="item-dot-menu-trigger dropdown-toggle btn btn-primary"
+              type="button"
+            >
+              ⋮
+            </button>
+          </div>
+        </figure>
+      </div>
+    </main>
+    <footer
+      class="app-footer"
+    >
+      <img
+        alt="My_movies"
+        class="app-footer-logo"
+        src="site-logo.png"
+      />
+      <div
+        class="posters-panel"
+      />
+    </footer>
+  </div>
+</DocumentFragment>
+`;

@@ -12,6 +12,7 @@ const DetailsPanel = (props) => {
         <img src={movie.poster} alt="My_movies" className="app-logo details-poster" />
         <Button 
           className="close-modal-btn"
+          title="close panel"
           onClick={closeDetails}
         >
           &#10005;
@@ -36,7 +37,7 @@ DetailsPanel.propTypes = {
 }
 
 DetailsPanel.defaultProps = {
-  closeDetails: () => { console.log('default closeDetails function called')},
+  // closeDetails: () => { console.log('default closeDetails function called')},
   movie: {},
 }
 
