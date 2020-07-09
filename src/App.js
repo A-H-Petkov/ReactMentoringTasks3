@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-modal';
 import ErrorBoundary from './ErrorBoundary';
@@ -18,17 +18,31 @@ import {
   updateMovieList
 } from './helpers/listHelpers';
 import './App.css';
+import { connect } from 'react-redux';
+import { fetchMovies } from './actions/actions';
 
 
 
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 
-const App = () => {
+const App = (props) => {
+
+  const { movieList, fetchMovies } = props;
 
   const [openModal, setOpenModal] = useState('');
-  const [movieList, setMovieList] = useState(defaultMovieList);
+  // const [movieList, setMovieList] = useState(defaultMovieList);
   const [stagedMovie, setStagedMovie] = useState(null);
   const [detailedPreview, setDetailedPreview] = useState(null);
+
+  console.log(movieList, fetchMovies, 'movieList**');
+
+  useEffect(() =>{
+    console.log('use effect');
+    if(movieList.length === 0) {
+      console.log('caaaalll');
+      fetchMovies()
+    }
+  }, [movieList, fetchMovies ]);
 
   const prepareModalData = (setType, movie) => {
     setOpenModal(setType); 
@@ -45,8 +59,8 @@ const App = () => {
   }
 
   const confirmModal = (data = {}) => {
-    const updatedList = updateMovieList(movieList, openModal, stagedMovie, data);
-    setMovieList(updatedList);
+    // const updatedList = updateMovieList(movieList, openModal, stagedMovie, data);
+    // setMovieList(updatedList);
     closeModal();
   }
 
@@ -98,4 +112,16 @@ const App = () => {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    movieList: state.movies,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchMovies: () => { dispatch(fetchMovies()) },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
