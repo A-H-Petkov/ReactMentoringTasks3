@@ -10,16 +10,16 @@ import ModalContent from './components/ModalContent'
 import { 
   filterOptions, 
   sortingOptions, 
-  defaultMovieList,
+  // defaultMovieList,
   modalTypes,
   modalStyles, 
 } from './mockData/data';
-import {
+/* import {
   updateMovieList
-} from './helpers/listHelpers';
+} from './helpers/listHelpers'; */
 import './App.css';
 import { connect } from 'react-redux';
-import { fetchMovies } from './actions/actions';
+import { getMovies, getMovieById, addMovie, editMovie, deleteMovie } from './actions/actions';
 
 
 
@@ -27,22 +27,20 @@ if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 
 const App = (props) => {
 
-  const { movieList, fetchMovies } = props;
+  const { movieList, getMovies, editMovie, addMovie, deleteMovie } = props;
 
   const [openModal, setOpenModal] = useState('');
-  // const [movieList, setMovieList] = useState(defaultMovieList);
   const [stagedMovie, setStagedMovie] = useState(null);
   const [detailedPreview, setDetailedPreview] = useState(null);
 
-  console.log(movieList, fetchMovies, 'movieList**');
+  console.log(movieList, getMovies, 'movieList**');
 
   useEffect(() =>{
-    console.log('use effect');
     if(movieList.length === 0) {
-      console.log('caaaalll');
-      fetchMovies()
+      console.log('caling getMovies');
+      getMovies()
     }
-  }, [movieList, fetchMovies ]);
+  }, [movieList, getMovies ]);
 
   const prepareModalData = (setType, movie) => {
     setOpenModal(setType); 
@@ -60,7 +58,15 @@ const App = (props) => {
 
   const confirmModal = (data = {}) => {
     // const updatedList = updateMovieList(movieList, openModal, stagedMovie, data);
-    // setMovieList(updatedList);
+    if(openModal === modalTypes.DELETE) {
+      deleteMovie(stagedMovie.id);
+    }
+    else if(openModal === modalTypes.ADD) {
+      addMovie(data)
+    }
+    else {
+      editMovie({ ...data, id: stagedMovie.id});
+    }
     closeModal();
   }
 
@@ -120,7 +126,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchMovies: () => { dispatch(fetchMovies()) },
+    getMovies: () => { dispatch(getMovies()) },
+    getMovieById: (id) => { dispatch(getMovieById(id))}, 
+    addMovie: (data) => { dispatch(addMovie(data))},
+    editMovie: (data) => { dispatch(editMovie(data))},
+    deleteMovie: (id) => { dispatch(deleteMovie(id))},
   }
 }
 
