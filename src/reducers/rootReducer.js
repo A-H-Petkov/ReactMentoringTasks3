@@ -2,6 +2,7 @@
 import { actionTypes } from '../actions/actions';
 
 const defaultState = {
+    previewedMovie: null,
     movies: []
 }
 
@@ -13,12 +14,12 @@ const rootReducer = (state = defaultState, action) => {
                 movies: action.data
             }
         case actionTypes.getMovieById:
+            const requestedMovie = state.movies.find(movie => movie.id === action.id) || null;
             return {
                 ...state,
-                movies: action.data
+                previewedMovie: requestedMovie
             } 
         case actionTypes.deleteMovie:
-            console.log('deleting');
             const reducedMovies = state.movies.map(movie => (
                 movie.id === action.id ?
                 { ...movie, isActive: false} :

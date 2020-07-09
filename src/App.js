@@ -9,8 +9,7 @@ import Footer from './components/Footer';
 import ModalContent from './components/ModalContent'
 import { 
   filterOptions, 
-  sortingOptions, 
-  // defaultMovieList,
+  sortingOptions,
   modalTypes,
   modalStyles, 
 } from './mockData/data';
@@ -27,17 +26,14 @@ if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 
 const App = (props) => {
 
-  const { movieList, getMovies, editMovie, addMovie, deleteMovie } = props;
+  const { movieList, detailedPreview, getMovies, getMovieById, editMovie, addMovie, deleteMovie } = props;
+
 
   const [openModal, setOpenModal] = useState('');
   const [stagedMovie, setStagedMovie] = useState(null);
-  const [detailedPreview, setDetailedPreview] = useState(null);
-
-  console.log(movieList, getMovies, 'movieList**');
 
   useEffect(() =>{
     if(movieList.length === 0) {
-      console.log('caling getMovies');
       getMovies()
     }
   }, [movieList, getMovies ]);
@@ -53,7 +49,7 @@ const App = (props) => {
   };
 
   const closeDetails = () => { 
-    setStagedMovie(null)
+    getMovieById('');
   }
 
   const confirmModal = (data = {}) => {
@@ -71,7 +67,7 @@ const App = (props) => {
   }
 
   const openDetailed = (item) => {
-    setDetailedPreview(item)
+    getMovieById(item.id)
   }
 
   return (
@@ -121,6 +117,7 @@ const App = (props) => {
 const mapStateToProps = (state) => {
   return {
     movieList: state.movies,
+    detailedPreview: state.previewedMovie,
   }
 }
 

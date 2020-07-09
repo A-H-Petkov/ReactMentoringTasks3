@@ -11,12 +11,12 @@ export const actionTypes = {
 }
 
 export const getMovies = () => ({
-    type: actionTypes.getMovies,
+    type: actionTypes.getMovies, // ToDo use https://my-json-server.typicode.com/ for actual API call
     data: defaultMovieList 
 });
 
 export const getMovieById = (id) => ({
-    type: actionTypes.getMovieById,
+    type: actionTypes.getMovieById, // ToDo use https://my-json-server.typicode.com/ for actual API call
     id, 
 });
 
