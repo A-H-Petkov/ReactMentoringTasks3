@@ -8,8 +8,6 @@ import DetailsPanel from './components/DetailsPanel'
 import Footer from './components/Footer';
 import ModalContent from './components/ModalContent'
 import { 
-  filterOptions, 
-  sortingOptions,
   modalTypes,
   modalStyles, 
 } from './mockData/data';
@@ -18,7 +16,7 @@ import {
 } from './helpers/listHelpers'; */
 import './App.css';
 import { connect } from 'react-redux';
-import { getMovies, getMovieById, addMovie, editMovie, deleteMovie } from './actions/actions';
+import { getMovies, getMovieById, addMovie, editMovie, deleteMovie, setFilter, setSorting } from './actions/actions';
 
 
 
@@ -26,7 +24,18 @@ if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 
 const App = (props) => {
 
-  const { movieList, detailedPreview, getMovies, getMovieById, editMovie, addMovie, deleteMovie } = props;
+  const { movieList, 
+    detailedPreview, 
+    getMovies, 
+    getMovieById, 
+    editMovie, 
+    addMovie, 
+    deleteMovie,
+    filterBy,
+    sortBy,
+    setFilter,
+    setSorting,
+   } = props;
 
 
   const [openModal, setOpenModal] = useState('');
@@ -87,13 +96,15 @@ const App = (props) => {
         />
         }
         
-        <Catalog 
-          filterOptions={filterOptions}
-          sortingOptions={sortingOptions}
+        <Catalog
           movieList={movieList}
           setOpenModal={prepareModalData}
           modalTypes={modalTypes}
           openDetailed={openDetailed}
+          sortBy={sortBy}
+          filterBy={filterBy}
+          setFilter={setFilter}
+          setSorting={setSorting}
         />      
         <Footer />
       </div>
@@ -118,6 +129,8 @@ const mapStateToProps = (state) => {
   return {
     movieList: state.movies,
     detailedPreview: state.previewedMovie,
+    filterBy: state.filterBy,
+    sortBy: state.sortBy,
   }
 }
 
@@ -128,6 +141,8 @@ const mapDispatchToProps = (dispatch) => {
     addMovie: (data) => { dispatch(addMovie(data))},
     editMovie: (data) => { dispatch(editMovie(data))},
     deleteMovie: (id) => { dispatch(deleteMovie(id))},
+    setFilter: (genre) => { dispatch(setFilter(genre))},
+    setSorting: (param) => { dispatch(setSorting(param))},
   }
 }
 

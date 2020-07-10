@@ -4,15 +4,17 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-
-
-const CatalogControls = ({ 
+import { 
   filterOptions, 
   sortingOptions, 
+} from '../../mockData/data';
+
+
+const CatalogControls = ({  
   sortValue,
-  setSortValue,
+  setSorting,
   filterValue,
-  setFilterValue
+  setFilter
 }) => {
 
   return (
@@ -25,8 +27,8 @@ const CatalogControls = ({
             variant="outline-primary"
             name="radio"
             value={radio.value}
-            checked={filterValue === radio.value}
-            onChange={(e) => setFilterValue(e.currentTarget.value)}
+            checked={filterValue.name === radio.name}
+            onChange={(e) => { setFilter(radio)}}
           >
             {radio.name}
           </ToggleButton>
@@ -34,12 +36,12 @@ const CatalogControls = ({
       </ButtonGroup>
       <ButtonGroup>          
         <span className="sorting-label">SORT BY: </span>
-        <DropdownButton id="dropdown-basic-button" title={sortingOptions[sortValue].name.toUpperCase()}>
+        <DropdownButton id="dropdown-basic-button" title={sortValue.name.toUpperCase()}>
           {sortingOptions.map((option, idx) => (
             <Dropdown.Item 
               key={idx}
               value={option.value}
-              onChange={(e) => setSortValue(e.currentTarget.value)}
+              onClick={(e) => { console.log(option, 'seting sort'); setSorting(option)}}
             >
               {option.name.toUpperCase()}
             </Dropdown.Item>
@@ -53,10 +55,10 @@ const CatalogControls = ({
 CatalogControls.propTypes = {
   filterOptions: PropTypes.array, 
   sortingOptions: PropTypes.array,  
-  sortValue: PropTypes.number,
-  setSortValue: PropTypes.func,
-  filterValue: PropTypes.string,
-  setFilterValue: PropTypes.func,
+  sortValue: PropTypes.object,
+  setSorting: PropTypes.func,
+  filterValue: PropTypes.object,
+  setFilter: PropTypes.func,
 }
 
 export default CatalogControls;

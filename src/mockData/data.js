@@ -10,9 +10,9 @@ export const filterOptions = [
   ];
   
 export const sortingOptions = [
-    { name: 'Release date', value: 1 },
-    { name: 'Rating', value: 2 },
-    { name: 'Runtime', value: 3 }
+    { name: 'Release date', value: 'year' },
+    { name: 'Rating', value: 'rating' },
+    { name: 'Runtime', value: 'runtime' }
   ]
   
 export const defaultMovieList = [
@@ -25,6 +25,7 @@ export const defaultMovieList = [
       genres: ['ACTION'],
       url: 'black.com',
       runtime: 120,
+      rating: 7,
       isActive: true,
     },
     { 
@@ -36,6 +37,7 @@ export const defaultMovieList = [
       genres: ['ACTION', 'DRAMA', 'SCI-FI'],
       url: 'inter.com',
       runtime: 180,
+      rating: 9,
       isActive: true,
     },
     { 
@@ -47,6 +49,7 @@ export const defaultMovieList = [
       genres: ['ACTION'],
       url: 'fury.com',
       runtime: 140,
+      rating: 8,
       isActive: true,
     },
     { 
@@ -58,6 +61,7 @@ export const defaultMovieList = [
       genres: ['ACTION', 'SCI-FI'],
       url: '2049.com',
       runtime: 185,
+      rating: 10,
       isActive: true,
     },
     { 
@@ -69,6 +73,7 @@ export const defaultMovieList = [
       genres: ['ACTION', 'HORROR'],
       url: 'dr_sleep.com',
       runtime: 112,
+      rating: 8,
       isActive: true,
     },
     { 
@@ -80,6 +85,7 @@ export const defaultMovieList = [
       genres: ['DOCUMENTARY'],
       url: 'documentary.com',
       runtime: 90,
+      rating: 7,
       isActive: true,
     },
   ];

@@ -1,9 +1,14 @@
-// import { defaultMovieList } from '../mockData/data';
 import { actionTypes } from '../actions/actions';
+import { 
+    filterOptions, 
+    sortingOptions, 
+  } from './../mockData/data';
 
 const defaultState = {
     previewedMovie: null,
-    movies: []
+    movies: [],
+    filterBy: filterOptions[0],
+    sortBy: sortingOptions[0],
 }
 
 const rootReducer = (state = defaultState, action) => {
@@ -48,7 +53,17 @@ const rootReducer = (state = defaultState, action) => {
             return {
                 ...state,
                 movies: updatedMovies,
-            }         
+            } 
+        case actionTypes.setFilter:
+            return {
+                ...state,
+                filterBy: action.data,
+            }
+        case actionTypes.setSorting:
+            return {
+                ...state,
+                sortBy: action.data,
+            }                
         default: 
             return state;
     }
