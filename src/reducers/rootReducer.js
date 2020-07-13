@@ -19,10 +19,9 @@ const rootReducer = (state = defaultState, action) => {
                 movies: action.data
             }
         case actionTypes.getMovieById:
-            const requestedMovie = state.movies.find(movie => movie.id === action.id) || null;
             return {
                 ...state,
-                previewedMovie: requestedMovie
+                previewedMovie: action.movie
             } 
         case actionTypes.deleteMovie:
             const reducedMovies = state.movies.map(movie => (

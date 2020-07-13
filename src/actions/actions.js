@@ -1,4 +1,4 @@
-import { defaultMovieList } from '../mockData/data';
+// import { defaultMovieList } from '../mockData/data';
 
 export const actionTypes = {
     getMovies: 'GET_MOVIES',
@@ -10,14 +10,14 @@ export const actionTypes = {
     deleteMovie: 'DELETE_MOVIE',
 }
 
-export const getMovies = () => ({
-    type: actionTypes.getMovies, // ToDo use https://my-json-server.typicode.com/ for actual API call
-    data: defaultMovieList 
+export const getMovies = (movies) => ({
+    type: actionTypes.getMovies, 
+    data: movies
 });
 
-export const getMovieById = (id) => ({
-    type: actionTypes.getMovieById, // ToDo use https://my-json-server.typicode.com/ for actual API call
-    id, 
+export const getMovieById = (movie) => ({
+    type: actionTypes.getMovieById,
+    movie, 
 });
 
 export const setFilter = (data) => ({

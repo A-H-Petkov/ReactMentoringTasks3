@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-modal';
 import ErrorBoundary from './ErrorBoundary';
@@ -11,13 +12,11 @@ import {
   modalTypes,
   modalStyles, 
 } from './mockData/data';
-/* import {
-  updateMovieList
-} from './helpers/listHelpers'; */
 import './App.css';
 import { connect } from 'react-redux';
 import { getMovies, getMovieById, addMovie, editMovie, deleteMovie, setFilter, setSorting } from './actions/actions';
 
+const moviesURL = 'http://my-json-server.typicode.com/A-H-Petkov/movies/movieList';
 
 
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
@@ -43,7 +42,9 @@ const App = (props) => {
 
   useEffect(() =>{
     if(movieList.length === 0) {
-      getMovies()
+      axios.get(moviesURL)
+      .then(res => { getMovies(res.data)})
+      .catch(err => { console.log(err) })
     }
   }, [movieList, getMovies ]);
 
@@ -58,32 +59,40 @@ const App = (props) => {
   };
 
   const closeDetails = () => { 
-    getMovieById('');
+    getMovieById(null);
   }
 
   const confirmModal = (data = {}) => {
-    // const updatedList = updateMovieList(movieList, openModal, stagedMovie, data);
     if(openModal === modalTypes.DELETE) {
-      deleteMovie(stagedMovie.id);
+      
+      axios.delete(`${moviesURL}/${stagedMovie.id}`)
+      .then(res => { deleteMovie(stagedMovie.id); } )
+      .catch(err => { console.log(err) })
     }
     else if(openModal === modalTypes.ADD) {
-      addMovie(data)
+      axios.post(moviesURL, data)
+      .then(res => { addMovie(res.data) } )
+      .catch(err => { console.log(err) })
     }
     else {
-      editMovie({ ...data, id: stagedMovie.id});
+      axios.put(`${moviesURL}/${stagedMovie.id}`, { ...data, id: stagedMovie.id})
+      .then(res => { editMovie(res.data) } )
+      .catch(err => { console.log(err) })
     }
     closeModal();
   }
 
   const openDetailed = (item) => {
-    getMovieById(item.id)
+    axios.get(`${moviesURL}/${item.id}`)
+    .then(res => { getMovieById(res.data)})
+    .catch(err => { console.log(err) })
   }
 
   return (
     <ErrorBoundary>
       <div className="App">
         {
-          detailedPreview !== null 
+          detailedPreview !== null
           ?
           <DetailsPanel
             movie={detailedPreview}
@@ -136,8 +145,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getMovies: () => { dispatch(getMovies()) },
-    getMovieById: (id) => { dispatch(getMovieById(id))}, 
+    getMovies: (movies) => { dispatch(getMovies(movies)) },
+    getMovieById: (movie) => { dispatch(getMovieById(movie))}, 
     addMovie: (data) => { dispatch(addMovie(data))},
     editMovie: (data) => { dispatch(editMovie(data))},
     deleteMovie: (id) => { dispatch(deleteMovie(id))},
