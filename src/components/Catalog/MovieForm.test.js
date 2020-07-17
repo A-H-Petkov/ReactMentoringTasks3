@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import MovieForm from './MovieForm';
-import { defaultMovieList } from '../mockData/data';
+import { defaultMovieList } from '../../mockData/data';
 
 const mockConfirm = jest.fn();
 const mockMovie = defaultMovieList[0]

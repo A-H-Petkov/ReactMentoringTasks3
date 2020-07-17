@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from './components/Footer';
+import Footer from './components/shared/Footer';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {

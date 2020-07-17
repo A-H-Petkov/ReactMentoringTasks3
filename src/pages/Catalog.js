@@ -2,26 +2,27 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-modal';
-import ErrorBoundary from './ErrorBoundary';
-import Catalog from './components/Catalog/Catalog';
-import Header from './components/Header';
-import DetailsPanel from './components/DetailsPanel'
-import Footer from './components/Footer';
-import ModalContent from './components/ModalContent'
+import ErrorBoundary from '../ErrorBoundary';
+import Catalog from '../components/Catalog/Catalog';
+import CatalogHeader from '../components/Catalog/CatalogHeader';
+import Header from '../components/shared/Header';
+import DetailsPanel from '../components/Catalog/DetailsPanel'
+import Footer from '../components/shared/Footer';
+import ModalContent from '../components/Catalog/ModalContent'
 import { 
   modalTypes,
   modalStyles, 
-} from './mockData/data';
-import './App.css';
+} from '../mockData/data';
+// import './App.css';
 import { connect } from 'react-redux';
-import { getMovies, getMovieById, addMovie, editMovie, deleteMovie, setFilter, setSorting } from './actions/actions';
+import { getMovies, getMovieById, addMovie, editMovie, deleteMovie, setFilter, setSorting } from '../actions/actions';
 
 const moviesURL = 'http://my-json-server.typicode.com/A-H-Petkov/movies/movieList';
 
 
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 
-const App = (props) => {
+const CatalogPage = (props) => {
 
   const { movieList, 
     detailedPreview, 
@@ -99,10 +100,12 @@ const App = (props) => {
             closeDetails={closeDetails}
           />   
           :
-          <Header
-          setOpenModal={prepareModalData} 
-          modalTypes={modalTypes}
-        />
+          <Header>
+            <CatalogHeader
+              setOpenModal={prepareModalData} 
+              modalTypes={modalTypes}
+            />
+          </Header>
         }
         
         <Catalog
@@ -155,4 +158,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(CatalogPage);

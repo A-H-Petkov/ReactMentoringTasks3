@@ -211,3 +211,15 @@ button.item-dot-menu-trigger::after {
 .color-sienna {
   color: sienna;
 }
+
+.app-navigation {
+  height: 48px;
+  padding-top: 12px;
+  text-align: center;
+}
+
+.app-navigation a {
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 0 20px;
+}

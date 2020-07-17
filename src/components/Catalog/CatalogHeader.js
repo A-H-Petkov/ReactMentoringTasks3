@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from '../resources/site-logo.png';
+import logo from '../../resources/site-logo.png';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import { moviePrimer } from './../mockData/data';
+import { moviePrimer } from '../../mockData/data';
 
 const Header = (props) => {
 
@@ -12,8 +12,6 @@ const Header = (props) => {
 
   return (
     <React.Fragment>
-      <header className="App-header">
-        <img src={logo} alt="My_movies" className="app-logo" />
         <Button 
           className="add-movie-btn" 
           onClick={() => { setOpenModal(modalTypes.ADD, moviePrimer)}}
@@ -35,8 +33,6 @@ const Header = (props) => {
             </InputGroup.Append>
           </InputGroup>
         </div>
-        <div className="posters-panel"></div>
-      </header>  
     </React.Fragment>    
   );
 }

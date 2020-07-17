@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import DetailsPanel from './DetailsPanel';
-import { defaultMovieList } from '../mockData/data';
+import { defaultMovieList } from '../../mockData/data';
 
 const mockClose = jest.fn();
 const mockMovie = defaultMovieList[0]
