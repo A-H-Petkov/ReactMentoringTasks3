@@ -4,6 +4,7 @@ import Figure from 'react-bootstrap/Figure';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import CatalogControls from './CatalogControls';
+import { Link } from 'react-router-dom'
 
 
 function Catalog({ 
@@ -54,6 +55,7 @@ function Catalog({
             {catalogMovies.map((movie, idx) => (
               movie.isActive &&
               <Figure key={idx} className="catalog-item">
+                <Link to={`/movie/${movie.id}`}>
               <Figure.Image
                 // width={171}
                 // height={180}
@@ -61,6 +63,7 @@ function Catalog({
                 src={movie.poster}
                 //toDo generic image when poster is not provided
               />
+              </Link>
               <Figure.Caption>
                 <div className="movie-title-row">
                   <h6>{movie.title}</h6>

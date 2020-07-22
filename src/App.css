@@ -223,3 +223,10 @@ button.item-dot-menu-trigger::after {
   text-transform: uppercase;
   margin: 0 20px;
 }
+
+.movie-page {
+  background-color: #282c34;
+  min-height: 500px;
+  padding: 30px 20%;
+}
+

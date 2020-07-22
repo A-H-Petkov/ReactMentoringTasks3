@@ -4,24 +4,41 @@ import Header from '../components/shared/Header';
 const SupportPage = () => {
     return (
       <>
-        <Header />
+        <Header>
+          <h4 style={{ textAlign: 'center', color: 'silver', paddingTop: '40px', width: '80%', margin: '0 auto', maxWidth: '900px' }}>
+            Welcome to "MY MOVIES" Support
+          </h4>
+        </Header>
         <div style={{ textAlign: 'center', color: 'silver', paddingTop: '40px', width: '80%', margin: '0 auto', maxWidth: '900px' }}>
-          <h4>Welcome to "MY MOVIES" the online portal where you can watch all the latest movies and timeless classics<br />
-            go to Catalog to make your selection or find help in our supprot page
+          <h4>
+            Regularly asked questions:
           </h4>
           <br />
+          Question 1
           <p>
-            We and our partners store and/or access information on a device, such as cookies and process personal data, 
-            such as unique identifiers and standard information sent by a device for personalised ads and content, 
-            ad and content measurement, and audience insights, as well as to develop and improve products.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. 
+          Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. 
+          Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. 
+          Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu 
+          ad litora torquent per conubia nostra, per inceptos himenaeos. 
           </p>
           <br />
+          Question 2
           <p>
-            With your permission we and our partners may use precise geolocation data and identification through device scanning. 
-            You may click to consent to our and our partners’ processing as described above. 
-            Alternatively you may click to refuse to consent or access more detailed information and change your preferences 
-            before consenting. Please note that some processing of your personal data may not require your consent, 
-            but you have a right to object to such processing. Your preferences will apply to this website only.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. 
+          Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. 
+          Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. 
+          Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu 
+          ad litora torquent per conubia nostra, per inceptos himenaeos. 
+          </p>
+          <br />
+          Question 3
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. 
+          Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. 
+          Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. 
+          Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu 
+          ad litora torquent per conubia nostra, per inceptos himenaeos. 
           </p>
         </div>
       </>

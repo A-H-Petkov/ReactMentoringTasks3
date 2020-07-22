@@ -6,14 +6,12 @@ import ErrorBoundary from '../ErrorBoundary';
 import Catalog from '../components/Catalog/Catalog';
 import CatalogHeader from '../components/Catalog/CatalogHeader';
 import Header from '../components/shared/Header';
-import DetailsPanel from '../components/Catalog/DetailsPanel'
-import Footer from '../components/shared/Footer';
-import ModalContent from '../components/Catalog/ModalContent'
+import DetailsPanel from '../components/Catalog/DetailsPanel';
+import ModalContent from '../components/Catalog/ModalContent';
 import { 
   modalTypes,
   modalStyles, 
 } from '../mockData/data';
-// import './App.css';
 import { connect } from 'react-redux';
 import { getMovies, getMovieById, addMovie, editMovie, deleteMovie, setFilter, setSorting } from '../actions/actions';
 
@@ -118,7 +116,6 @@ const CatalogPage = (props) => {
           setFilter={setFilter}
           setSorting={setSorting}
         />      
-        <Footer />
       </div>
       <Modal 
         isOpen={openModal !== ''} 
