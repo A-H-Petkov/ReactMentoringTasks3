@@ -6,7 +6,6 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import CatalogControls from './CatalogControls';
 import { Link } from 'react-router-dom'
 
-
 function Catalog({ 
   movieList,
   setOpenModal,
@@ -36,8 +35,6 @@ function Catalog({
   const sortParam = sortBy.value;
   catalogMovies.sort((a, b) => a[sortParam] - b[sortParam] );
 
-  
-
   return (
       <main>
         <CatalogControls
@@ -57,8 +54,6 @@ function Catalog({
               <Figure key={idx} className="catalog-item">
                 <Link to={`/movie/${movie.id}`}>
               <Figure.Image
-                // width={171}
-                // height={180}
                 alt="171x180"
                 src={movie.poster}
                 //toDo generic image when poster is not provided
@@ -73,7 +68,6 @@ function Catalog({
                   {movie.genres.join(', ')}
                 </div>
               </Figure.Caption>
-              { /* <div className="item-dot-menu">...</div> */}
               <Dropdown as={ButtonGroup} className="item-dot-menu">
                 <Dropdown.Toggle className="item-dot-menu-trigger">&#8942;</Dropdown.Toggle>
                 <Dropdown.Menu>

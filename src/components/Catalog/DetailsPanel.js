@@ -37,7 +37,6 @@ DetailsPanel.propTypes = {
 }
 
 DetailsPanel.defaultProps = {
-  // closeDetails: () => { console.log('default closeDetails function called')},
   movie: {},
 }
 

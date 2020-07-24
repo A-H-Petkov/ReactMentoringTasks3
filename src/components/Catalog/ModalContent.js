@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import MovieForm from './MovieForm';
 
-const selecetModal = (type, typeList, confirmAction, stagedMovie) => {
+const selectModal = (type, typeList, confirmAction, stagedMovie) => {
   switch(type) {
     case typeList.ADD:
       case typeList.EDIT:
@@ -41,7 +41,7 @@ const ModalContent = ({
         {stagedMovie && stagedMovie.title !== '' && `"${stagedMovie.title}"`}
       </h4>
     </div>
-    { selecetModal(activeType, modalTypes, confirmModal, stagedMovie) }
+    { selectModal(activeType, modalTypes, confirmModal, stagedMovie) }
     </>
   );
 }

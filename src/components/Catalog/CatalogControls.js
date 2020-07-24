@@ -41,7 +41,7 @@ const CatalogControls = ({
             <Dropdown.Item 
               key={idx}
               value={option.value}
-              onClick={(e) => { console.log(option, 'seting sort'); setSorting(option)}}
+              onClick={(e) => {setSorting(option)}}
             >
               {option.name.toUpperCase()}
             </Dropdown.Item>

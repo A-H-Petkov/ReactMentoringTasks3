@@ -35,7 +35,6 @@ const CatalogPage = (props) => {
     setSorting,
    } = props;
 
-
   const [openModal, setOpenModal] = useState('');
   const [stagedMovie, setStagedMovie] = useState(null);
 

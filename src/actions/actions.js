@@ -1,5 +1,3 @@
-// import { defaultMovieList } from '../mockData/data';
-
 export const actionTypes = {
     getMovies: 'GET_MOVIES',
     getMovieById: 'GET_MOVIE_BY_ID',

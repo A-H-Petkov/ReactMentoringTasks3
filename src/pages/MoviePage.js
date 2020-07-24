@@ -19,27 +19,35 @@ const MoviePage = (props) => {
 
   }, [moviePreview, id, getMovieById])
 
-
-  // console.log(movieData, id, props);
-
-    return (
-      moviePreview ?
-      <div className="movie-page">
-        <img src={moviePreview.poster} alt="My_movies" className="app-logo details-poster" />
-        <h4 className="details-title">{moviePreview.title.toUpperCase()}</h4>
-        <p className="color-sienna">{moviePreview.genres.join(', ')}</p>
-        <p className="detail-stats">
-          <span>YEAR: {moviePreview.year}</span>
-          <span>RUNTIME {moviePreview.runtime} min.</span>
-          <span>RATING: 4.2/5</span>
-        </p>
-        <p className="details-overview">{moviePreview.overview}</p>
-        <div className="posters-panel"></div>
-        
-      </div>
-      :
-      <h2 style={{color: 'white', textAlign: 'center' }}>Movie not found</h2>
-    )
+  return (
+    moviePreview ?
+    <div className="movie-page">
+      <img src={moviePreview.poster} alt="My_movies" className="app-logo details-poster" />
+      <h4 className="details-title">
+        {moviePreview.title.toUpperCase()}
+      </h4>
+      <p className="color-sienna">
+        {moviePreview.genres.join(', ')}
+      </p>
+      <p className="detail-stats">
+        <span>
+          YEAR: {moviePreview.year}
+        </span>
+        <span>
+          RUNTIME {moviePreview.runtime} min.
+        </span>
+        <span>
+          RATING: 4.2/5
+        </span>
+      </p>
+      <p className="details-overview">
+        {moviePreview.overview}
+      </p>
+      <div className="posters-panel" />
+    </div>
+    :
+    <h2 style={{color: 'white', textAlign: 'center' }}>Movie not found</h2>
+  )
 }
 
 const mapStateToProps = (state) => {

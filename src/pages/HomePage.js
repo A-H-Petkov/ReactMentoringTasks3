@@ -8,7 +8,7 @@ const HomePage = () => {
           <h4 style={{ textAlign: 'center', color: 'silver', paddingTop: '40px', width: '80%', margin: '0 auto', maxWidth: '900px', display: 'block' }}>
             Welcome to "MY MOVIES"<br />
             the online portal where you can watch all the latest movies and timeless classics<br />
-            go to Catalog to make your selection or find help in our supprot page
+            go to Catalog to make your selection or find help in our support page
           </h4>
         </Header>  
         <div style={{ textAlign: 'center', color: 'silver', paddingTop: '40px', width: '80%', margin: '0 auto', maxWidth: '900px' }}>
