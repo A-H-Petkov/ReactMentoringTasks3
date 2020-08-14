@@ -37,11 +37,13 @@ const Header = (props) => {
 
 Header.propTypes = {
   setOpenModal: PropTypes.func,
-  modalTypes: PropTypes.object,
+  modalTypes: PropTypes.shape({
+    ADD: PropTypes.string,
+  }),
 };
 
 Header.defaultProps = {
-  setOpenModal: () => { console.log('default setOpenModal function called')},
+  setOpenModal: () => {},
   modalTypes: {},
 };
 

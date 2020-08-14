@@ -47,14 +47,21 @@ const ModalContent = ({
 ModalContent.propTypes = {
   confirmModal: PropTypes.func,
   closeModal: PropTypes.func,
-  modalTypes: PropTypes.object,
+  modalTypes: PropTypes.shape({}),
   activeType: PropTypes.string,
-  stagedMovie: PropTypes.object,
+  stagedMovie: PropTypes.shape({
+    overview: '',
+    year: '',
+    runtime: '',
+    genres: [],
+    title: '',
+    poster: '',
+  }),
 };
 
 ModalContent.defaultProps = {
-  confirmModal: () => { console.log('default confirmModal function called')},
-  closeModal: () => { console.log('default closeModal function called')},
+  confirmModal: () => {},
+  closeModal: () => {},
   modalTypes: {},
   activeType: '',
   stagedMovie: {},

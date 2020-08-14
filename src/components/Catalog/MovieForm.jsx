@@ -18,7 +18,7 @@ const MovieForm = ({ stagedMovie, confirmModal }) => {
 
   const updateForm = useCallback((e) => {
     e.preventDefault();
-    setMovie({ ...movie, [e.target.name] : e.target.value });
+    setMovie({ ...movie, [e.target.name]: e.target.value });
   });
 
   const updateMovieGenres = useCallback((e) => {
@@ -81,7 +81,7 @@ const MovieForm = ({ stagedMovie, confirmModal }) => {
         {
           filterOptions.map(genre => {
             return (
-              genre.name !== 'ALL' 
+              genre.name !== 'ALL'
               &&
               (
               <Form.Check
@@ -112,11 +112,19 @@ const MovieForm = ({ stagedMovie, confirmModal }) => {
 
 MovieForm.propTypes = {
   confirmModal: PropTypes.func,
-  stagedMovie: PropTypes.object,
+  stagedMovie: PropTypes.shape({
+    overview: '',
+    year: '',
+    runtime: '',
+    genres: [],
+    title: '',
+    poster: '',
+  }),
 };
 
 MovieForm.defaultProps = {
   stagedMovie: {},
+  confirmModal: () => {},
 };
 
 export default MovieForm;

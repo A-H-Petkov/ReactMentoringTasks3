@@ -1,8 +1,8 @@
 import { actionTypes } from '../actions/actions';
-import { 
-    filterOptions, 
-    sortingOptions, 
-  } from './../mockData/data';
+import {
+    filterOptions,
+    sortingOptions,
+} from '../mockData/data';
 
 const defaultState = {
     previewedMovie: null,
@@ -62,10 +62,10 @@ const rootReducer = (state = defaultState, action) => {
             return {
                 ...state,
                 sortBy: action.data,
-            }                
+            }
         default: 
             return state;
     }
-}
+};
 
 export default rootReducer;

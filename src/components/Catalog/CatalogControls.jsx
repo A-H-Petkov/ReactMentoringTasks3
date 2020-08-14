@@ -26,7 +26,7 @@ const CatalogControls = ({
           name="radio"
           value={radio.value}
           checked={filterValue.name === radio.name}
-          onChange={(e) => { setFilter(radio)}}
+          onChange={() => { setFilter(radio); }}
         >
           {radio.name}
         </ToggleButton>
@@ -51,12 +51,21 @@ const CatalogControls = ({
 );
 
 CatalogControls.propTypes = {
-  filterOptions: PropTypes.array,
-  sortingOptions: PropTypes.array,
-  sortValue: PropTypes.object,
+  sortValue: PropTypes.shape({
+    name: PropTypes.string,
+  }),
   setSorting: PropTypes.func,
-  filterValue: PropTypes.object,
+  filterValue: PropTypes.shape({
+    name: PropTypes.string,
+  }),
   setFilter: PropTypes.func,
+};
+
+CatalogControls.defaultProps = {
+  sortValue: {},
+  setSorting: () => {},
+  filterValue: {},
+  setFilter: () => {},
 };
 
 export default CatalogControls;

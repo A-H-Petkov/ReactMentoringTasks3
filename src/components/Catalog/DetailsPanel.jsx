@@ -39,11 +39,19 @@ const DetailsPanel = (props) => {
 
 DetailsPanel.propTypes = {
   closeDetails: PropTypes.func,
-  movie: PropTypes.object,
+  movie: PropTypes.shape({
+    overview: '',
+    year: '',
+    runtime: '',
+    genres: [],
+    title: '',
+    poster: '',
+  }),
 };
 
 DetailsPanel.defaultProps = {
   movie: {},
+  closeDetails: () => {},
 };
 
 export default DetailsPanel;

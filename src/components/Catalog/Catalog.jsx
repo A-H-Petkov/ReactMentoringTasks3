@@ -84,23 +84,29 @@ function Catalog({
 }
 
 Catalog.propTypes = {
-  movieList: PropTypes.array,
+  movieList: PropTypes.shape([]),
   setOpenModal: PropTypes.func,
-  modalTypes: PropTypes.object,
+  modalTypes: PropTypes.shape({}),
   openDetailed: PropTypes.func,
   setFilter: PropTypes.func,
   setSorting: PropTypes.func,
-  sortBy: PropTypes.object,
-  filterBy: PropTypes.object,
+  sortBy: PropTypes.shape({
+    value: PropTypes.string,
+  }),
+  filterBy: PropTypes.shape({
+    name: PropTypes.string,
+  }),
 };
 
 Catalog.defaultProps = {
-  filterOptions: [], 
-  sortingOptions: [],  
   movieList: [],
-  setOpenModal: () => { console.log('default setOpenModal function called')},
+  setOpenModal: () => {},
   modalTypes: {},
-  openDetailed: () => { console.log('default openDetailed function called')},
+  openDetailed: () => {},
+  setFilter: () => {},
+  setSorting: () => {},
+  sortBy: {},
+  filterBy: {},
 };
 
 export default Catalog;
